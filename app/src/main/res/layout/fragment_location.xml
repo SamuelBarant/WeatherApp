@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <TextView
+        android:id="@+id/textCurrent"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+    />
+    <EditText
+        android:id="@+id/editCity"
+        android:hint="Name"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"/>
+
+    <EditText
+        android:id="@+id/editLatitude"
+        android:hint="Latitude"
+        android:inputType="numberSigned|numberDecimal"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"/>
+
+    <EditText
+        android:id="@+id/editLongitude"
+        android:hint="Longitude"
+        android:inputType="numberSigned|numberDecimal"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:text="Save location"
+        android:layout_height="45dp"
+        android:layout_width="match_parent"/>
+
+</LinearLayout>
