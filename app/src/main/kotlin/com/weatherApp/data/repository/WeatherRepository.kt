@@ -10,7 +10,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class WeatherRepository(
-    //private val dao: WeatherDao,
+    private val dao: WeatherDao,
     private val api: WeatherApiService,
     private val prefs: PreferencesManager
 ) {
@@ -35,28 +35,12 @@ class WeatherRepository(
                 time = response.hourly.time[index]
             )
         }
-        //dao.clearDatabase()
-        //dao.insertWeatherData(temperatures)
+        dao.clearDatabase()
+        dao.insertWeatherData(temperatures)
     }
 
     fun getWeather(): LiveData<List<WeatherEntity>> {
-        // TODO uncomment when DAO is defined and delete all the other lines on this function
-        //  return dao.retrieveWeatherData()
-        val mockData = MutableLiveData<List<WeatherEntity>>()
-
-        val now = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")
-
-        val list = List(12) { i ->
-            WeatherEntity(
-                id = i,
-                temperature = (10..25).random().toDouble(),
-                time = now.plusHours(i.toLong()).format(formatter)
-            )
-        }
-
-        mockData.value = list
-        return mockData
+        return dao.retrieveWeatherData()
     }
 }
 
